@@ -1,0 +1,52 @@
+\section{Freidlin Wentzell Theory}
+
+\newcommand{\pathspace}{\mathcal{C}}
+
+Here we introduce the key results of the Freidlin Wentzell theory. This is largely a summary of  \cite{Touchette2009} \cite{Bouchet2014} \cite{PoppeJr2018}and \cite{Grafke2019}.\\
+
+\subsection{The Freidlin Wentzell Action}
+
+We begin with an SDE with additive, Gausian noise
+
+\begin{align}
+    \dd X_t = a(x) \dd t + \sigma \sqrt{\epsilon}  \dd W_t \label{eqn:additive-SDE}
+\end{align}
+
+Our interest is in a large deviation type result on the space of paths $\pathspace := \left\{x: I \to \R^n \right\}$, that is, we are looking for a \textbf{functional} rate function $J[x]: \pathspace \to \R^n$ such that
+
+\begin{align}
+    \Prob \left(x(t) = \phi(t)\right) \approx \exp{ \frac{-J[\phi]}{\epsilon} }.
+\end{align}
+
+For the SDE \ref{eqn:additive-SDE} Freidlin and Wentzell have shown that on the space of paths satisfying the initial condition
+
+\begin{align}
+    J[x] &= \int_0^\tau L(x, \dot{x}) \dd t\\
+    L(x, \dot{x}) &= \frac{1}{2} (\dot{x} - a(x) )^2. \label{eqn:lagrangian}
+\end{align}
+
+$L$ in \ref{eqn:lagrangian} is known as the `Lagrangian'. We note that the rate function $J[x]$ is also known as the `Freidlin- Wentzell action functional'.
+
+\subsection{Instantons}
+
+
+The reason the above result is of interest to us, is that we can now use the contraction principle to obtain a large deviation result on paths transitioning from one fixed point to another, $\Gamma = \left\{x \in \pathspace | x(0) = a, x(\tau) = b \right\}$. Namely we can obtain a rate function $V$ (known as the `Quasi Potential') such that
+
+\begin{align}
+    \Prob (x \in \Gamma) = \exp{\frac{-V[x]}{\epsilon} }
+\end{align}
+
+where $V(a, b)$ minimizes $J[x]$ over $\Gamma$. The key take away is that our question about transition probabilities is now a question about \textbf{action minimisation}, analogous to what one does in classical mechanics. The path $x^*$ that minimizes $J[x]$ over $\Gamma$ is known as an \textbf{instanton}. We quickly note there is a lot one can do with the quasi potential $V$, as discussed in \cite{Grafke2019}.\\
+
+Following \cite{Grafke2019} one can write the Euler-Lagrange equations that for the instanton $x^*$ for the SDE \ref{eqn:additive-SDE} as
+
+\begin{align}
+    D^{-1}\ddot{x} + (D^{-1}\grad a - \grad(a)^T D^{-1})\dot(x) + \grad (a \vdot D^{-1}a) = 0.
+\end{align}
+
+Equivalently, one can Legendre transform and write the equivalent Hamiltonian formulation
+
+\begin{align}
+    \dot{x} &= a + a \theta\\
+    \dot{\theta} &= - \grad(a)^T\theta
+\end{align}
